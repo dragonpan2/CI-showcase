@@ -21,10 +21,14 @@ jobs:
       with:
         node-version: 12.8
     - name: Install dependencies
+      working-directory: ./new
       run: npm install
     - name: Lint
+      working-directory: ./new
       run: npm run lint
     - name: Build
+      working-directory: ./new
       run: npm run build -- --prod
     - name: Test
+      working-directory: ./new
       run: npm test -- --configuration=ci
