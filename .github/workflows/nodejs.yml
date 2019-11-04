@@ -32,3 +32,16 @@ jobs:
     - name: Test
       working-directory: ./new
       run: npm test -- --configuration=ci
+      
+    - name: Install dependencies
+      working-directory: ./copy
+      run: npm install
+    - name: Lint
+      working-directory: ./copy
+      run: npm run lint
+    - name: Build
+      working-directory: ./copy
+      run: npm run build -- --prod
+    - name: Test
+      working-directory: ./copy
+      run: npm test -- --configuration=ci
